@@ -1,0 +1,28 @@
+/******************************************************
+ *              Style sheet for index.php             *
+ ******************************************************/
+
+/* Body styles for index.php */
+body{
+    background-color: #F5CA5C;
+}
+
+/* Styles for container on index.php */
+#container{
+    background-color: white;
+    display: block;
+    position: relative;
+    width: 70%;
+    height: 450px;
+    margin: 0 auto;
+    padding: 12px;
+    border:1px solid black;
+}
+
+/* For title at top of page on index.php */
+#pageTitle{
+    width:100%;
+    text-align:center;
+    font-size:2em;
+    padding-top:50px;
+}
