@@ -5,14 +5,18 @@
 # will be called and the data will be loaded.
 
 #Imports
-import webbrowser
+import webbrowser, os.path
 from WebLoader import open_url
 
 def main():
     url = "crime-data.dev"
+    path = "../web_interface/web/view/data/{{{DATAFILE NAME}}}"
 
-    #Register chrome web-browser
+    # Data Logic Here
     open_url(url, 'chrome')
+    #Check if file exists, if it does load web-interface for visualization
+    if(os.path.exists(path)):
+        open_url(url, 'chrome')
 
 if __name__ == "__main__":
     main()

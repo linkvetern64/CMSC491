@@ -9,7 +9,6 @@ import os, platform, webbrowser
 #Returns web controller for chosen browser to load
 #Parameters: ID - String - intended browser, or default if empty
 def register_browsers(ID):
-
     OS = platform.system()
 
     #If system is windows, install webbrowser paths and return selected controller
