@@ -106,7 +106,7 @@ How to Operate
 -- Index.php --     
     To be written.
 
--- PreProcessor.py --
+-- PreProcessor.py --  
     To be written.
 
 Description
@@ -120,10 +120,10 @@ into the web interface for visualized results and heat-map generation.
 
 Data Sources
 -
-OpenBaltimore Data Center - https://data.baltimorecity.gov
-OpenBaltimore Crime Data - https://data.baltimorecity.gov/browse?category=Crime
-OpenBaltimore Vacant Housing Data - https://data.baltimorecity.gov/Housing-Development/Vacant-Buildings/qqcv-ihn5
-AccuWeather JSON Stream & API - https://downloads.accuweather.com
+OpenBaltimore Data Center - https://data.baltimorecity.gov  
+OpenBaltimore Crime Data - https://data.baltimorecity.gov/browse?category=Crime  
+OpenBaltimore Vacant Housing Data - https://data.baltimorecity.gov/Housing-Development/Vacant-Buildings/qqcv-ihn5  
+AccuWeather JSON Stream & API - https://downloads.accuweather.com  
 
 
 Testing
@@ -137,9 +137,9 @@ Content unavailable.
 
 Authors
 -
-Joshua Standiford
-Daniel Kelly
-Malik Jackson
+Joshua Standiford  
+Daniel Kelly  
+Malik Jackson  
 
 
     
