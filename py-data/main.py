@@ -7,13 +7,17 @@
 #Imports
 import webbrowser, os.path
 from WebLoader import open_url
+from AddressParser import GeoCoords
 
 def main():
     url = "crime-data.dev"
     path = "../web_interface/web/view/data/{{{DATAFILE NAME}}}"
 
     # Data Logic Here
-    open_url(url, 'chrome')
+
+    GeoCoords("561 Light St Baltimore MD")
+
+
     #Check if file exists, if it does load web-interface for visualization
     if(os.path.exists(path)):
         open_url(url, 'chrome')
