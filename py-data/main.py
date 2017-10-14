@@ -11,12 +11,21 @@ from AddressParser import GeoCoords
 
 def main():
     url = "crime-data.dev"
+    data_path = "../data/"
+    data_files = ["rape-csv.csv", "homicide-csv.csv", "larceny-csv.csv"]
     path = "../web_interface/web/view/data/{{{DATAFILE NAME}}}"
 
-    # Data Logic Here
+    #Testing LatLong function
+    #GeoCoords("561 Light St Baltimore MD")
 
-    GeoCoords("561 Light St Baltimore MD")
+    for data_file in data_files:
+        file = open(data_path + data_file)
+        for line in file:
+            print("")
+            #line below prints the date from the CSV
+            #print(line.split(',')[0])
 
+        file.close()
 
     #Check if file exists, if it does load web-interface for visualization
     if(os.path.exists(path)):
