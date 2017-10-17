@@ -9,27 +9,53 @@ import webbrowser, os.path
 from WebLoader import open_url
 from AddressParser import GeoCoords
 
+#Gets all .csv files from data directory
+def getDataFiles():
+    files = []
+    for file in os.listdir("../data"):
+        if file.endswith(".csv"):
+            files.append(file)
+    return files
+
+#
+#
 def main():
     url = "crime-data.dev"
     data_path = "../data/"
-    data_files = ["rape-csv.csv", "homicide-csv.csv", "larceny-csv.csv"]
     path = "../web_interface/web/view/data/{{{DATAFILE NAME}}}"
+    data_files = getDataFiles()
 
-    #Testing LatLong function
-    #GeoCoords("561 Light St Baltimore MD")
+    #Select singular file for testing
+    data_files = ['rape-csv.csv']
+    state = "MD"
+    target = 0
 
+    #Date, Code, Address, Crime, Weapon, District, Neighborhood
+
+    #Displays information within all the data files
     for data_file in data_files:
         file = open(data_path + data_file)
+        index = 0
         for line in file:
-            print("")
+            if index < target:
+                index += 1
+                continue
             #line below prints the date from the CSV
-            #print(line.split(',')[0])
+            data = line.split(',')
+            try:
+                GeoCoords(data[2] + " " + state)
+            except:
+                print("Died at :")
+                print(index)
+            index += 1
 
         file.close()
 
     #Check if file exists, if it does load web-interface for visualization
     if(os.path.exists(path)):
         open_url(url, 'chrome')
+    #else:
+        #raise BaseException('Cannot find produced DATA file')
 
 if __name__ == "__main__":
     main()

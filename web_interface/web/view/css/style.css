@@ -26,3 +26,12 @@ body{
     font-size:2em;
     padding-top:50px;
 }
+
+#stats{
+    display:block;
+    position: relative;
+    float:right;
+    width:50%;
+    height:100%;
+    padding:20px;
+}

@@ -2,6 +2,10 @@
        * element that contains the map. */
 #map {
     height: 100%;
+    width: 50%;
+    position: relative;
+    display:block;
+    float:left;
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
@@ -9,7 +13,13 @@ html, body {
     margin: 0;
     padding: 0;
 }
+/*
+
+Floating planel for button toggles
+
+*/
 #floating-panel {
+    display:none;
     position: absolute;
     top: 10px;
     left: 25%;
@@ -22,6 +32,12 @@ html, body {
     line-height: 30px;
     padding-left: 10px;
 }
+
+/*
+
+Floating panel for Map | Satellite panel
+
+*/
 #floating-panel {
     background-color: #fff;
     border: 1px solid #999;

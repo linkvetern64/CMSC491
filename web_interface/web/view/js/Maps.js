@@ -57,7 +57,14 @@ function changeOpacity() {
 // Heatmap data: 500 Points
 function getPoints() {
     return [
-        new google.maps.LatLng(39.485513, -77.024842)
+        new google.maps.LatLng(39.282525, -76.612489),
+        new google.maps.LatLng(39.282425, -76.612289),
+        new google.maps.LatLng(39.283525, -76.612189),
+        new google.maps.LatLng(39.282525, -76.612389),
+        new google.maps.LatLng(39.282515, -76.612589),
+        new google.maps.LatLng(39.282535, -76.612189),
+        new google.maps.LatLng(39.282545, -76.612189),
+
     ];
 }
 

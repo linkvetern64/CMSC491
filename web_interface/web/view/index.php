@@ -54,6 +54,20 @@ require_once(dirname(__FILE__) . '/../load.php');
       <button onclick="changeOpacity()">Change opacity</button>
     </div>
     <div id="map"></div>
+    <div id="stats">
+      <div style="width:100%;text-align:center;font-size: 1.5em">Stats</div>
+      <hr>
+      <p>
+        <ul>
+          <li>Homicide % = </li>
+          <li>Rape % = </li>
+          <li>Larceny % = </li>
+          <li>Total Crime % = </li>
+          <li>Likelihood % = </li>
+        </ul>
+      </p>
+      
+    </div>
 </div>
 
 <hr>
