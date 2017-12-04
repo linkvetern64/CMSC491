@@ -3,7 +3,7 @@
 // parameter when you first load the API. For example:
 // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
 
-var map, heatmap;
+var map, heatmap, paused = true, timing = 1000;
 
 /**
  * Default map is set to Baltimore
@@ -16,10 +16,11 @@ function initMap() {
         mapTypeId: 'satellite'
     });
 
-    heatmap = new google.maps.visualization.HeatmapLayer({
-        data: getPoints(),
+     heatmap = new google.maps.visualization.HeatmapLayer({
         map: map
-    });
+        });
+
+    
 }
 
 function toggleHeatmap() {
@@ -68,6 +69,51 @@ function getPoints() {
     ];
 }
 
-function populatePoints(){
+function populatePoints(index){
     //This file will read the crime data and create an array of lat-lng points
+    points = [[ 
+        new google.maps.LatLng(39.282525, -76.612489),
+        new google.maps.LatLng(39.282425, -76.612289),
+        new google.maps.LatLng(39.283525, -76.612189),
+        new google.maps.LatLng(39.282525, -76.612389),
+        new google.maps.LatLng(39.282515, -76.612589),
+        new google.maps.LatLng(39.282535, -76.612189),
+        new google.maps.LatLng(39.282545, -76.612189),
+         ] ,
+         [ 
+        new google.maps.LatLng(39.283525, -76.616489),
+        new google.maps.LatLng(39.283425, -76.611289),
+        new google.maps.LatLng(39.283525, -76.612189),
+        new google.maps.LatLng(39.283525, -76.610389),
+        new google.maps.LatLng(39.283515, -76.613589),
+        new google.maps.LatLng(39.283535, -76.611189),
+        new google.maps.LatLng(39.283545, -76.614189),
+         ]];
+
+    return points[index]
+}
+
+function playMap(){
+    paused = false;
+    var i = 0;
+    numPoints = 2
+    setInterval(function(){
+        if(!paused){
+        heatmap.setData([])
+
+        //Keep index within bounds of point array
+        i = (i + 1) % numPoints
+
+        //Generate new heatmap with visualization
+        heatmap = new google.maps.visualization.HeatmapLayer({
+        data: populatePoints(i),
+        map: map
+        });
+
+        }
+    }, timing);
+}
+
+function pauseMap(){
+    paused = true;
 }

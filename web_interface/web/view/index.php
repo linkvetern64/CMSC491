@@ -52,6 +52,9 @@ require_once(dirname(__FILE__) . '/../load.php');
       <button onclick="changeGradient()">Change gradient</button>
       <button onclick="changeRadius()">Change radius</button>
       <button onclick="changeOpacity()">Change opacity</button>
+      <button onclick="playMap()">Play map</button>
+      <button onclick="pauseMap()">Pause map</button>
+
     </div>
     <div id="map"></div>
     <div id="stats">
