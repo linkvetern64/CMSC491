@@ -47,7 +47,7 @@ require_once(dirname(__FILE__) . '/../load.php');
 <!-- Display Content -->
 <div id="container">
    <!-- Content Goes Here -->
-   <div id="floating-panel">
+   <div id="floating-panel" style="display:none;">
       <button onclick="toggleHeatmap()">Toggle Heatmap</button>
       <button onclick="changeGradient()">Change gradient</button>
       <button onclick="changeRadius()">Change radius</button>
@@ -69,11 +69,10 @@ require_once(dirname(__FILE__) . '/../load.php');
           <li>Likelihood % = </li>
         </ul>
       </p>
-      
+        <button onclick="playMap()">Play map</button>
+        <button onclick="pauseMap()">Pause map</button>
     </div>
 </div>
-
-<hr>
 <footer>
     <!-- Footer Content Here -->
 </footer>
