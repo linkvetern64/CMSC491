@@ -3,7 +3,7 @@
 // parameter when you first load the API. For example:
 // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
 
-var map, heatmap, paused = true, timing = 1000;
+var map, heatmap, paused = true, timing = 3000, points = [];
 
 /**
  * Default map is set to Baltimore
@@ -20,7 +20,9 @@ function initMap() {
         map: map
         });
 
-    
+    // Fetch the data points
+    fetchPoints()
+
 }
 
 function toggleHeatmap() {
@@ -69,18 +71,22 @@ function getPoints() {
     ];
 }
 
+function fetchPoints() {
+    return fetch('lat-long-data.json')
+      .then(body => body.json())
+      .then(({ data }) => data.map(({ latitude, longitude }) =>
+        new google.maps.LatLng(latitude, longitude),
+      ))
+      .then(newPoints => {
+        points.push(newPoints)
+      })
+      .catch(err => console.error(err))
+}
+
 function populatePoints(index){
     //This file will read the crime data and create an array of lat-lng points
-    points = [[ 
-        new google.maps.LatLng(39.282525, -76.612489),
-        new google.maps.LatLng(39.282425, -76.612289),
-        new google.maps.LatLng(39.283525, -76.612189),
-        new google.maps.LatLng(39.282525, -76.612389),
-        new google.maps.LatLng(39.282515, -76.612589),
-        new google.maps.LatLng(39.282535, -76.612189),
-        new google.maps.LatLng(39.282545, -76.612189),
-         ] ,
-         [ 
+    //
+    points.push([
         new google.maps.LatLng(39.283525, -76.616489),
         new google.maps.LatLng(39.283425, -76.611289),
         new google.maps.LatLng(39.283525, -76.612189),
@@ -88,7 +94,7 @@ function populatePoints(index){
         new google.maps.LatLng(39.283515, -76.613589),
         new google.maps.LatLng(39.283535, -76.611189),
         new google.maps.LatLng(39.283545, -76.614189),
-         ]];
+      ])
 
     return points[index]
 }
@@ -97,6 +103,13 @@ function playMap(){
     paused = false;
     var i = 0;
     numPoints = 2
+
+    // Initialize a heat map
+    heatmap = new google.maps.visualization.HeatmapLayer({
+      data: populatePoints(0),
+      map,
+    });
+
     setInterval(function(){
         if(!paused){
         heatmap.setData([])
