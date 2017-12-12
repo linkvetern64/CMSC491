@@ -74,7 +74,7 @@ function getPoints() {
 function fetchPoints() {
     return fetch('lat-long-data.json')
       .then(body => body.json())
-      .then(({ data }) => data.map(({ latitude, longitude }) =>
+      .then(data => Object.values(data).map(([ latitude, longitude ]) =>
         new google.maps.LatLng(latitude, longitude),
       ))
       .then(newPoints => {
